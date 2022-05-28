@@ -1,0 +1,21 @@
+import java.util.*;
+public class Min_Max{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        ArrayList<Integer> a=new ArrayList<>();
+       int i,max=0;
+       for(i=0;i<n;i++)
+           a.add(sc.nextInt());
+       int buy=a.get(0);
+       for(i=1;i<n;i++)
+       {
+           if(a.get(i)<buy)
+               buy=a.get(i);
+           else if(a.get(i)-buy > max)
+               max=a.get(i)-buy;
+       }
+        System.out.println(max);
+
+    }
+}
