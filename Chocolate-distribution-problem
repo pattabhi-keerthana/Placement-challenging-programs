@@ -1,0 +1,24 @@
+//Chocolate Distribution problem -choose any m packets so that difference between MAX and MIN  is minimum
+import java.util.*;
+public class Min_Max {
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int i,min;
+        ArrayList<Integer> a=new ArrayList<Integer>();
+        for(i=0;i<n;i++)
+            a.add(sc.nextInt());
+        Collections.sort(a);
+        int m=sc.nextInt();
+        min=a.get(n-1)-a.get(0);
+        for(i=0;i<n-m;i++)
+        {
+            if(min>a.get(i+m-1)-a.get(i))
+           min=a.get(i+m-1)-a.get(i);
+        }
+        System.out.println(min);
+
+    }
+
+}
