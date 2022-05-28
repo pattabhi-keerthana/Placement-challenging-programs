@@ -1,0 +1,36 @@
+import java.util.*;
+public class Min_Max{
+    public static int min(int a,int b)
+    {
+        return a<b?a:b;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        ArrayList<Integer> a=new ArrayList<>();
+        int i;
+        for(i=0;i<n;i++)
+            a.add(sc.nextInt());
+       int[] lmax=new int[10];
+       int[] rmax=new int[10];
+       int max=a.get(0);
+       for(i=0;i<n-1;i++)
+       {
+           lmax[i]=max;
+           if(a.get(i+1)>max) max=a.get(i+1);
+       }
+       lmax[i]=max;
+       max=a.get(n-1);
+       for(i=n-1;i>0;i--)
+       {
+          rmax[i] =max;
+          if(a.get(i-1)>max) max=a.get(i-1);
+       }
+       rmax[i]=max;
+       int sum=0;
+       for(i=0;i<n;i++)
+           sum=sum+min(lmax[i],rmax[i]) -a.get(i);
+        System.out.println(sum);
+    }
+}
