@@ -1,0 +1,19 @@
+import java.util.*;
+public class Min_Max{
+   public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        ArrayList<Integer> a=new ArrayList<>();
+        int i;
+        for(i=0;i<n;i++)
+            a.add(sc.nextInt());
+        int area=0,l=0,r=n-1;
+        while(l<r)
+        {
+            area=Math.max(area,Math.min(a.get(l),a.get(r))*(r-l));
+            if(a.get(l)<a.get(r)) l++;
+            else r--;
+        }
+       System.out.println(area);
+    }
+}
