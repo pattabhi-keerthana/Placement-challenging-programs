@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        ArrayList<Integer> a=new ArrayList<Integer>();
+        int i,min=500;
+        for(i=0;i<n;i++)
+            a.add(sc.nextInt());
+        int m=sc.nextInt();
+        for(i=0;i<n;i++)
+        {
+            if(a.contains(m-a.get(i)))
+            {
+                int temp=m-a.get(i);
+                if(a.indexOf(temp)!=i) {
+                    System.out.println(i + " " + a.indexOf(temp));
+                    break;
+                }
+            }
+        }
+    }
+}
